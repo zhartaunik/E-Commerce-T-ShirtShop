@@ -14,7 +14,7 @@ class Router implements RouterInterface
          */
     {
         $controllerName = $this->retrieveControllerName();
-        $className = sprintf('\Ecommerce\Catalog\Controller\%s', $controllerName);
+        $className = sprintf('\Ecommerce\%s\Controller\%s', $controllerName[0], $controllerName[1]);
         if (class_exists($className)) {
             $controller = new $className();
             $controller->execute();
@@ -24,11 +24,21 @@ class Router implements RouterInterface
 
     }
 
-    private function retrieveControllerName(): string
+    /**
+     * @return string[]
+     */
+    private function retrieveControllerName(): array
     {
         $requestUri = $_SERVER['REQUEST_URI'];
-        $controllerName = trim($requestUri, '/');
-        return ucfirst($controllerName);
+        $requestArray = explode('/', $requestUri);
+        $urlKeys = [];
+        foreach ($requestArray as $element) {
+            if ($element) {
+                $urlKeys[] = ucfirst($element);
+            }
+        }
+//        $controllerName = trim($requestUri, '/');
+        return $urlKeys;
 
 
     }
