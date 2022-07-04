@@ -14,8 +14,13 @@ class Router implements RouterInterface
          */
     {
         $controllerName = $this->retrieveControllerName();
-        $controller = new \Ecommerce\Catalog\Controller\View();
-        $controller->execute();
+        $className = sprintf('\Ecommerce\Catalog\Controller\%s', $controllerName);
+        if (class_exists($className)) {
+            $controller = new $className();
+            $controller->execute();
+        } else {
+            echo '404 Class not found';
+        }
 
     }
 

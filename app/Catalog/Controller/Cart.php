@@ -4,7 +4,7 @@ namespace Ecommerce\Catalog\Controller;
 
 use Ecommerce\Core\Controller\ControllerInterface;
 
-class View implements ControllerInterface
+class Cart implements ControllerInterface
 {
 
     /**
@@ -12,7 +12,6 @@ class View implements ControllerInterface
      */
     public function execute(): void
     {
-        echo ' We are inside catalog View';
-
+        echo " We are inside Shopping cart";
     }
 }
