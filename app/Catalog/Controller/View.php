@@ -11,6 +11,8 @@ class View implements ControllerInterface
      */
     public function execute(): void
     {
-        echo ' We are inside catalog View';
+        $loader = new \Twig\Loader\FilesystemLoader('templates');
+        $twig = new \Twig\Environment($loader);
+        $twig->display('products.tpl');
     }
 }
