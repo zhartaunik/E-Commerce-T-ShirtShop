@@ -2,26 +2,27 @@
 
 namespace Ecommerce\Core\Routing;
 
+use Ecommerce\Core\Controller\NoRoute;
+
 class Router implements RouterInterface
 {
-
     /**
      * @inheritDoc
      */
     public function match(): void
-        /**
-         *
-         */
     {
         $controllerName = $this->retrieveControllerName();
-        $className = sprintf('\Ecommerce\%s\Controller\%s', $controllerName[0], $controllerName[1]);
+        $className = sprintf(
+            '\Ecommerce\%s\Controller\%s',
+            $controllerName[0] ?? 'Index',
+            $controllerName[1] ?? 'Index',
+        );
         if (class_exists($className)) {
             $controller = new $className();
-            $controller->execute();
         } else {
-            echo '404 Class not found';
+            $controller = new NoRoute();
         }
-
+        $controller->execute();
     }
 
     /**
@@ -37,9 +38,7 @@ class Router implements RouterInterface
                 $urlKeys[] = ucfirst($element);
             }
         }
-//        $controllerName = trim($requestUri, '/');
+
         return $urlKeys;
-
-
     }
 }

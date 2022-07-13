@@ -12,6 +12,6 @@ class Cart implements ControllerInterface
      */
     public function execute(): void
     {
-        echo " We are inside Shopping cart";
+        echo " We are inside Shopping cart. Hi";
     }
 }
