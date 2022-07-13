@@ -38,7 +38,6 @@ class Router implements RouterInterface
                 $urlKeys[] = ucfirst($element);
             }
         }
-
         return $urlKeys;
     }
 }

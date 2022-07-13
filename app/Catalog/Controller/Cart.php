@@ -6,7 +6,6 @@ use Ecommerce\Core\Controller\ControllerInterface;
 
 class Cart implements ControllerInterface
 {
-
     /**
      * @inheritDoc
      */

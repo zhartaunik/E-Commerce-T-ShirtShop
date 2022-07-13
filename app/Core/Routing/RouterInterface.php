@@ -15,5 +15,4 @@ interface RouterInterface
      * @return void
      */
     public function match(): void;
-
 }
