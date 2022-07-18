@@ -1,0 +1,35 @@
+<div class="container">
+    {% include 'header.twig' %}
+    <aside>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </aside>
+    <main>Main</main>
+    <footer>footer</footer>
+</div>
+
+<style>
+    div { border: 1px solid black;}
+    .container {  display: grid;
+        grid-template-columns: 0.8fr 1.2fr 1fr;
+        grid-template-rows: 0.5fr 2.1fr 0.4fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+    "header header header"
+    "left content content"
+    "footer footer footer";
+    }
+
+    header { grid-area: header;}
+
+    aside { grid-area: left; }
+
+    main { grid-area: content; }
+
+    footer { grid-area: footer; }
+
+</style>
