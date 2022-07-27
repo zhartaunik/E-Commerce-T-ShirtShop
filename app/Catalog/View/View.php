@@ -13,7 +13,7 @@ class View implements ControllerInterface
      */
     public function execute(): void
     {
-        $loader = new FilesystemLoader('templates');
+        $loader = new FilesystemLoader(['templates', 'app/Catalog/View/templates/']);
         $twig = new Environment($loader);
         $twig->display('products.twig');
     }

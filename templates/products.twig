@@ -6,6 +6,10 @@
     </aside>
     <main>Main
         {% include 'catalog/body.twig' %}
+
+        {% for el in page %}
+            {% include  el.block ~ '/body.twig' %}
+        {% endfor %}
     </main>
 
     <footer>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ecommerce\Catalog\Controller;
+namespace Ecommerce\Cart\View;
 
 use Ecommerce\Core\Controller\ControllerInterface;
 
