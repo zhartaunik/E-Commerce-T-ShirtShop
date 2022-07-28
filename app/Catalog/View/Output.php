@@ -6,14 +6,14 @@ use Ecommerce\Core\Controller\ControllerInterface;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class View implements ControllerInterface
+class Output implements ControllerInterface
 {
     /**
      * @inheritDoc
      */
     public function execute(): void
     {
-        $loader = new FilesystemLoader(['templates', 'app/Catalog/View/templates/']);
+        $loader = new FilesystemLoader('templates');
         $twig = new Environment($loader);
         $twig->display('products.twig');
     }

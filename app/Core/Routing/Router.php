@@ -13,7 +13,7 @@ class Router implements RouterInterface
     {
         $controllerName = $this->retrieveControllerName();
         $className = sprintf(
-            '\Ecommerce\%s\View\%s',
+            '\Ecommerce\%s\Controller\%s',
             $controllerName[0] ?? 'Index',
             $controllerName[1] ?? 'Index',
         );
