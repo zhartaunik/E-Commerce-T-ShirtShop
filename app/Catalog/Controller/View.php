@@ -8,7 +8,7 @@ use Ecommerce\Core\Controller\ControllerInterface;
 class View implements ControllerInterface
 {
     /**
-     * @inheritDoc
+     * Loading the Catalog template
      */
     public function execute(): void
     {

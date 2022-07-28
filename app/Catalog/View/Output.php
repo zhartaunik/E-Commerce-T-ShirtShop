@@ -9,7 +9,7 @@ use Twig\Loader\FilesystemLoader;
 class Output implements ControllerInterface
 {
     /**
-     * @inheritDoc
+     * Execute the Catalog template
      */
     public function execute(): void
     {

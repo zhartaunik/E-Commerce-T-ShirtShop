@@ -4,10 +4,10 @@ namespace Ecommerce\Cart\View;
 
 use Ecommerce\Core\Controller\ControllerInterface;
 
-class Cart implements ControllerInterface
+class Output implements ControllerInterface
 {
     /**
-     * @inheritDoc
+     * Execute the Cart template
      */
     public function execute(): void
     {
