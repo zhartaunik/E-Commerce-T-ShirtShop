@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Ecommerce\Core\Controller;
 
+use Ecommerce\Core\DB\DBConnection;
+
 class Setup implements ControllerInterface
 {
 
@@ -14,7 +16,7 @@ class Setup implements ControllerInterface
     {
         echo 'Setup';
         $listOfScripts = glob('app/*/Setup/*.php');
-        $connection = new Connection();
+        $connection = DBConnection::getConnection();
 
         foreach ($listOfScripts as $installFile) {
             $path = str_replace(['/','app'], ['\\', 'Ecommerce'], $installFile);
