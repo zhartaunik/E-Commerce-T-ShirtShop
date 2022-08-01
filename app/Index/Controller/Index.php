@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Ecommerce\Index\Controller;
 
@@ -7,7 +8,6 @@ use Ecommerce\Index\View\Output;
 
 class Index implements ControllerInterface
 {
-
     /**
      * @inheritDoc
      */

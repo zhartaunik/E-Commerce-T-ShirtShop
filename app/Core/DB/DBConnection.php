@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace Ecommerce\Core\DB;
 
 use mysqli;
+use Throwable;
 
-class DBConnection
+class DBConnection implements ConnectionInterface
 {
-    private $connection = null;
-
+    /**
+     * @var mysqli|null
+     */
+    private mysqli|null $connection = null;
 
     /**
      * @inheritDoc
@@ -18,8 +21,8 @@ class DBConnection
     {
         if ($this->connection === null) {
             try {
-                $connection = mysqli_connect('localhost', 'root', 'root');
-            } catch (\Throwable $e) {
+                $connection = mysqli_connect('localhost', 'root', 'root', 't_shirt_shop');
+            } catch (Throwable $e) {
                 echo $e->getMessage();
                 $connection = false;
             }
@@ -28,8 +31,6 @@ class DBConnection
             }
             $this->connection = $connection;
         }
-
         return $this->connection;
-
     }
 }

@@ -14,5 +14,4 @@ interface ConnectionInterface
      * @return mysqli
      */
     public function getConnection(): mysqli;
-
 }

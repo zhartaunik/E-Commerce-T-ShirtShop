@@ -19,19 +19,20 @@ class CreateCatalogTables implements InstallInterface
      */
     public function __construct(ConnectionInterface $connection)
     {
-
         $this->connection = $connection;
     }
 
     public function install(): void
     {
         $sql = <<<SQL
-CREATE TABLE catalog_product
-id INT(10) AUTO_INCREMENT,
-product_name VARCHAR(255) NOT NULL
+CREATE TABLE catalog_product (
+id INT AUTO_INCREMENT PRIMARY KEY,
+product_name VARCHAR(255) NOT NULL                      
+)
 SQL;
 
-        $connection =  $this->connection->getConnection();
+        $connection = $this->connection->getConnection();
+        $connection->query('DROP TABLE IF EXISTS catalog_product');
         $connection->query($sql);
     }
 }

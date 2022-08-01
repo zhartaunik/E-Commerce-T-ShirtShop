@@ -35,10 +35,8 @@ class Router implements RouterInterface
         $urlKeys = [];
         foreach ($requestArray as $element) {
             if ($element) {
-//                $element = substr($element, 0, stripos($element, '.'));
                 $element = substr($element, 0, strcspn($element, '.'));
                 $urlKeys[] = ucfirst($element);
-
             }
         }
         return $urlKeys;
