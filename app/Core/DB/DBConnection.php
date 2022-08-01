@@ -6,20 +6,17 @@ namespace Ecommerce\Core\DB;
 
 use mysqli;
 
-class DBConnection implements ConnectionInterface
+class DBConnection
 {
-    /**
-     * @var null
-     */
-    static private $connection = null;
+    private $connection = null;
 
 
     /**
      * @inheritDoc
      */
-    static public function getConnection(): mysqli
+    public function getConnection(): mysqli
     {
-        if (self::$connection === null) {
+        if ($this->connection === null) {
             try {
                 $connection = mysqli_connect('localhost', 'root', 'root');
             } catch (\Throwable $e) {
@@ -29,10 +26,10 @@ class DBConnection implements ConnectionInterface
             if ($connection === false) {
                 echo 'False DB connection';
             }
-            self::$connection = $connection;
+            $this->connection = $connection;
         }
 
-        return self::$connection;
+        return $this->connection;
 
     }
 }

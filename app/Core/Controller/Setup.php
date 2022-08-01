@@ -16,7 +16,8 @@ class Setup implements ControllerInterface
     {
         echo 'Setup';
         $listOfScripts = glob('app/*/Setup/*.php');
-        $connection = DBConnection::getConnection();
+        $connection = new DBConnection();
+        $connection->getConnection();
 
         foreach ($listOfScripts as $installFile) {
             $path = str_replace(['/','app'], ['\\', 'Ecommerce'], $installFile);

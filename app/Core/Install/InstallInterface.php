@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ecommerce\Core\Setup;
+namespace Ecommerce\Core\Install;
 
 interface InstallInterface
 {
